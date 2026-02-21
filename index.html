@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy 17th Birthday Hifza Ji 💖</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fecfef);
+            color: white;
+        }
+
+        h1 {
+            margin-top: 80px;
+            font-size: 42px;
+        }
+
+        .message {
+            width: 75%;
+            margin: auto;
+            font-size: 20px;
+        }
+
+        #countdown {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            color: #ff69b4;
+            cursor: pointer;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            color: pink;
+            font-size: 20px;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy 17th Birthday, Hifza Ji 💖🎂</h1>
+
+    <div class="message">
+        Today the world became brighter 17 years ago ✨  
+        May your smile always shine, and may this year bring you happiness,
+        success, and beautiful memories 🌸
+    </div>
+
+    <div id="countdown"></div>
+
+    <button onclick="showHidden()">Click for a Special Surprise 💌</button>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+<script>
+    // Automatically set next Feb 22
+    const now = new Date();
+    let year = now.getFullYear();
+
+    let birthday = new Date(year, 1, 22, 0, 0, 0); // Month 1 = February
+
+    if (now > birthday) {
+        birthday = new Date(year + 1, 1, 22, 0, 0, 0);
+    }
+
+    const timer = setInterval(function() {
+        const current = new Date().getTime();
+        const distance = birthday.getTime() - current;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            "Countdown: " + days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML =
+                "🎉 It's Your 17th Birthday Hifza Ji! 🎉";
+        }
+    }, 1000);
+
+    function showHidden() {
+        alert("Hifza Ji 💖 You are truly special. Stay happy, keep shining, and never stop being amazing 🌷✨");
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
